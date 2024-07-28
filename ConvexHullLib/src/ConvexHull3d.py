@@ -1,8 +1,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class ConvexHull2d:
+DIM_3D = 3
+
+class ConvexHull3d:
     def __init__(self, pts):
+        """
+
+        :param pts: 3d points in space shaped (N, 3)
+        """
+        assert pts.shape[1] == DIM_3D
+
         self.pts = pts
         self.num_pts = pts.shape[0]
         # self.pts_labeled = np.zeros((self.num_pts, 3))
