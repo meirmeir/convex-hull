@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 DIM_3D = 3
 
-class ConvexHull3d:
+class ConvexHull_3d:
     def __init__(self, pts):
         """
 
@@ -18,7 +18,9 @@ class ConvexHull3d:
 
         self.pts_labeled = np.append(self.pts, np.arange(self.num_pts).reshape((self.num_pts, 1)), axis=1)
 
-        self.hull = None
+        self.hull = []
+        self._hull_labels = {}  # contains labels of points inside the hull
 
     def find_hull(self):
         pass
+

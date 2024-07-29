@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class ConvexHull2d:
+class ConvexHull_2d:
     def __init__(self, pts):
         self.pts = pts
         self.num_pts = pts.shape[0]

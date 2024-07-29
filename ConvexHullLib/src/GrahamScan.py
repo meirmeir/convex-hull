@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from collections import deque
 
-from src.ConvexHull2d import ConvexHull2d
+from src.ConvexHull_2d import ConvexHull_2d
 
 X, Y, LABEL, ANGLE = range(4)
 
 
-class GrahamScan(ConvexHull2d):
+class GrahamScan(ConvexHull_2d):
     def __init__(self, pts):
         super().__init__(pts)
         self._source, self._source_idx = self._find_source()
