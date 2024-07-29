@@ -22,9 +22,8 @@ class Triangle:
         self.spanning_plane = [(self.pt2 - self._base)[: LABEL],
                                (self.pt3 - self._base)[: LABEL]]
         self._neighbors = []
-        self.cross_p = np.cross(self.spanning_plane[0], self.spanning_plane[1])
-        # self._have_labels = sum([len(pt) for pt in self.pts]) == 3 * LEN_WITH_LABEL
-
+        self._num_neighbors = 0
+        self.orth_vec = np.cross(self.spanning_plane[0], self.spanning_plane[1])
 
 
     def get_point_labels(self):
@@ -47,9 +46,16 @@ class Triangle:
     def get_neighbors(self):
         return self._neighbors
 
+    def get_num_neighbors(self):
+        return self._num_neighbors
+
+    def all_neighbors_known(self):
+        return self._num_neighbors == MAX_NUM_NEIGHBORS
+
     def add_neighbor(self, neighbor_label):
-        if len(self._neighbors) < MAX_NUM_NEIGHBORS:
+        if self._num_neighbors < MAX_NUM_NEIGHBORS:
             self._neighbors.append(neighbor_label)
+            self._num_neighbors += 1
             return True
         else:
             return False
