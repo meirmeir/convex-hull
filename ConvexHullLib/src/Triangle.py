@@ -54,6 +54,9 @@ class Triangle:
         else:
             return False
 
+    def switch_orientation(self):
+        self.pt2, self.pt3 = self.pt3, self.pt2
+
     @staticmethod
     def _add_label_column(pt):
         if len(pt) >= LEN_WITH_LABEL:
